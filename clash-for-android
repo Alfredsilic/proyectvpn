@@ -1,0 +1,274 @@
+﻿port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+external-ui: folder
+interface-name: en0
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  default-nameserver:
+    - 1.1.1.1
+    - 1.0.0.1
+  nameserver:
+    - 1.1.1.1 
+    - 1.0.0.1 
+    - tls://dns.rubyfish.cn:853 
+    - https://1.1.1.1/dns-query 
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+proxies:
+- name: "VIVA SIN SALDO"
+  server: 104.16.53.111
+  port: 8443
+  type: vmess
+  uuid: ebc095f4-431c-4506-80bd-8202c2ac5875
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: tlsv2ray.netlatina.tk
+  network: ws
+  ws-opts:
+    path: /XMiqQFOf/
+    headers:
+      Host: tlsv2ray.netlatina.tk
+
+- name: "V2RAY-NETFLIX"
+  server: checkuser2.netlatina.tk
+  port: 8443
+  type: vmess
+  uuid: 2d92b1e1-3cef-460d-9876-7441ac4d2d6d
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: www.netflix.com
+  network: ws
+  ws-opts:
+    path: /hVsJCmzn/
+    headers:
+      Host: www.netflix.com
+
+- name: "V2RAY-INSTAGRAM"
+  server: 38.7.207.44
+  port: 8443
+  type: vmess
+  uuid: 235528f3-cd99-46e5-8fff-426d60d9f5cd
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: www.instagram.com
+  network: ws
+  ws-opts:
+    path: /bz1P28S9/
+    headers:
+      Host: www.instagram.com
+
+- name: "V2RAY-TIKTOK"
+  server: 38.7.207.44
+  port: 8443
+  type: vmess
+  uuid: 235528f3-cd99-46e5-8fff-426d60d9f5cd
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: www.tiktok.com
+  network: ws
+  ws-opts:
+    path: /bz1P28S9/
+    headers:
+      Host: www.tiktok.com
+
+- name: "V2RAY-YOUTUBE"
+  server: 38.7.207.44
+  port: 8443
+  type: vmess
+  uuid: 235528f3-cd99-46e5-8fff-426d60d9f5cd
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: www.youtube.com
+  network: ws
+  ws-opts:
+    path: /bz1P28S9/
+    headers:
+      Host: www.youtube.com
+
+- name: "V2RAY-TWITTER"
+  server: ssstwitter.com
+  port: 8443
+  type: vmess
+  uuid: 235528f3-cd99-46e5-8fff-426d60d9f5cd
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: knupv2.v2raycompany.gq
+  network: ws
+  ws-opts:
+    path: /bz1P28S9/
+    headers:
+      Host: knupv2.v2raycompany.gq
+
+- name: "ENTEL-WHATSAPP"
+  server: fmwhatsapp.net
+  port: 8443
+  type: vmess
+  uuid: 2d92b1e1-3cef-460d-9876-7441ac4d2d6d
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: checkuser2.netlatina.tk
+  network: ws
+  ws-opts:
+    path: /hVsJCmzn/
+    headers:
+      Host: checkuser2.netlatina.tk
+
+- name: "TROJAN-NETFLIX"
+  server: 38.7.207.216
+  port: 180
+  type: trojan
+  password: chumoghscript
+  skip-cert-verify: true
+  sni: www.netflix.com
+  network: 0
+  ws-opts:
+   path: 0
+   headers:
+    Host: www.netflix.com
+  udp: true
+
+- name: "TROJAN-INSTAGRAM"
+  server: 38.7.207.216
+  port: 180
+  type: trojan
+  password: chumoghscript
+  skip-cert-verify: true
+  sni: www.instagram.com
+  network: 0
+  ws-opts:
+   path: 0
+   headers:
+    Host: www.instagram.com
+  udp: true
+
+- name: "TROJAN-YOUTUBE"
+  server: 38.7.207.216
+  port: 180
+  type: trojan
+  password: chumoghscript
+  skip-cert-verify: true
+  sni: www.youtube.com
+  network: 0
+  ws-opts:
+   path: 0
+   headers:
+    Host: www.youtube.com
+  udp: true
+
+- name: "TROJAN-TIKTOK"
+  server: 38.7.207.216
+  port: 180
+  type: trojan
+  password: chumoghscript
+  skip-cert-verify: true
+  sni: www.tiktok.com
+  network: 0
+  ws-opts:
+   path: 0
+   headers:
+    Host: www.tiktok.com
+  udp: true
+
+proxy-groups:
+# 白名单模式 PROXY，黑名单模式 DIRECT
+- name: "Global✅"
+  type: select
+  proxies:
+    - "DIRECT"
+    - "BEST-PING"
+    - "SELECT"
+    
+#BEST-PING ( SERVER SECARA AUTO MEMILIH BERDASARKAN PING )
+- name: "BEST-PING"
+  type: url-test
+  proxies:
+      - "VIVA SIN SALDO"
+      - "V2RAY-NETFLIX"
+      - "V2RAY-INSTAGRAM"
+      - "V2RAY-TIKTOK"
+      - "V2RAY-YOUTUBE"
+      - "V2RAY-TWITTER"
+      - "TROJAN-NETFLIX"
+      - "TROJAN-INSTAGRAM"
+      - "TROJAN-YOUTUBE"
+      - "TROJAN-TIKTOK"
+      - "ENTEL-WHATSAPP"
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+  
+#SELECT ( UNTUK MEMILIH SERVER YG INGIN AKAN KITA GUNAKAN )
+- name: "SELECT"
+  type: select
+  proxies:
+      - "VIVA SIN SALDO"
+      - "V2RAY-NETFLIX"
+      - "V2RAY-INSTAGRAM"
+      - "V2RAY-TIKTOK"
+      - "V2RAY-YOUTUBE"
+      - "V2RAY-TWITTER"
+      - "TROJAN-NETFLIX"
+      - "TROJAN-INSTAGRAM"
+      - "TROJAN-YOUTUBE"
+      - "TROJAN-TIKTOK"
+      - "ENTEL-WHATSAPP"
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+
+rules:
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR6,fe80::/10,DIRECT,no-resolve
+  - IP-CIDR6,fd00::/8,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,ad.com,REJECT
+  - DOMAIN,analytics.google.com,REJECT
+  - DOMAIN,analyticsinsights-pa.googleapis.com,REJECT
+  - DOMAIN,analyticsreporting.googleapis.com,REJECT
+  - DOMAIN-SUFFIX,doubleclick.net,REJECT
+  - DOMAIN-SUFFIX,googleadservices.com,REJECT
+  - DOMAIN-SUFFIX,googleadsserving.cn,REJECT
+  - DOMAIN-SUFFIX,googlesyndication.com,REJECT
+  - DOMAIN-SUFFIX,googletagmanager.com,REJECT
+  - DOMAIN-SUFFIX,googletagservices.com,REJECT
+  - DOMAIN-SUFFIX,google-analytics.com,REJECT
+  - DOMAIN-KEYWORD,adservice,REJECT
+  - DOMAIN-KEYWORD,analytics,REJECT
+  - DOMAIN-KEYWORD,analysis,REJECT
+  - SRC-IP-CIDR,192.168.1.201/32,DIRECT
+  - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  - GEOIP,IR,DIRECT
+  - MATCH,, Global✅ , dns-failed
